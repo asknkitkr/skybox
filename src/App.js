@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Register from './components/Register';
 import Login from './components/Login';
 import { AuthProvider } from './contexts/AuthContext';
+import Dashboard from './components/Dashboard';
 
 function App() {
   return (
@@ -11,9 +12,10 @@ function App() {
       <Navbar />
       <AuthProvider>
       <Switch>
-        <Route path="/" exact component={Home}/>
+        <Route path="/" exact component={Dashboard}/>
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
+        
       </Switch>
       </AuthProvider>
     </>

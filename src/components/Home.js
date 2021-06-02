@@ -1,5 +1,4 @@
 import React from 'react';
-import Illustration from '../images/illustration/message.svg';
 import {Link} from 'react-router-dom';
 const Home = () => {
     return (

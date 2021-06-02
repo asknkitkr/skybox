@@ -1,7 +1,7 @@
 import React, {useRef, useState} from 'react';
 import '../components/style.css';
 import Illustration from '../images/illustration/register.svg';
-import {Link} from 'react-router-dom';
+import {Link, useHistory } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 
 export default function Register() {
@@ -11,6 +11,7 @@ export default function Register() {
     const {signup} = useAuth()
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
+    const history = useHistory()
 
     async function handleSubmit(e) {
         e.preventDefault()
@@ -23,6 +24,7 @@ export default function Register() {
             setError('')
             setLoading(true)
             await signup(emailRef.current.value, passwordRef.current.value)
+            history.push('./')
 
         } catch {
             setError('Failed to create an account')
@@ -98,7 +100,7 @@ export default function Register() {
                                 >
                                 <span className="absolute left-0 inset-y-0 flex items-center pl-3">
                                 </span>
-                                Sign in
+                                Register Me!
                                 </button>
                             </div>
         </form>
